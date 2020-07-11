@@ -128,3 +128,8 @@ STATIC_URL = '/static/'
 ALLOWED_HOSTS = [os.environ.get('DJANGO_ALLOWED_HOSTS', ['*'])]
 
 
+# Celery settings
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_TASK_SERIALIZER = 'json'
