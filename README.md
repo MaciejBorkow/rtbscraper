@@ -1,7 +1,7 @@
 # rtbscraper
 
 ## About
-The rtbscraper web service scraps an HTML of a given URL and the saves it to db(Postgres). RestAPI is hosted by Django server, scrapping tasks are delegated to message broker(Redis) and executed by Celery workers.  
+The rtbscraper web service scraps an HTML of a given URL and saves it to db(Postgres) as text. RestAPI is hosted by Django server, scrapping tasks are delegated to message broker(Redis) and executed by Celery workers.  
 
 ## Getting Started
 
