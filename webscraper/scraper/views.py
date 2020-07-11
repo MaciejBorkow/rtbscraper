@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+
 from scraper.serializers import ScrapedUrlSerializer
 from scraper.tasks import scrap_url
 from scraper.models import ScrapedUrl
@@ -10,7 +11,7 @@ class ScrappedUrlViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save()
-        celery_task = scrap_url.delay(serializer.instance.id)
+        celery_task = scrap_url.delay(pk=serializer.instance.id, url=serializer.instance.url)
         serializer.instance.task_status = celery_task.status
         serializer.instance.task_id = celery_task.id
         serializer.instance.save()
