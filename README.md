@@ -16,7 +16,7 @@ Software was tested on Ubuntu 20.04
 ### Installation
 
 1. Download the repository.
-1. Run `docker-compose -d --build`
+1. Run `docker-compose up -d --build`
 
 ### API interface
 
